@@ -1,9 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+
+import { renderWithRedux } from '../../testHelpers';
+
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  it('should render the App component', () => {
+    const { asFragment } = renderWithRedux(<App />);
+
+    expect(asFragment).toBeDefined();
+  });
 });
